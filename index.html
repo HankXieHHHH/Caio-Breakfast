@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 這裡修改成你的地區與店名，會直接顯示在 Google 搜尋標題 -->
-    <title>【請填寫店名】｜【請填寫地區】手作晨食・質感早餐</title>
-    <meta name="description" content="位於【請填寫地區】的【請填寫店名】，堅持每日清晨現做手作蛋餅、厚實漢堡與香醇鮮奶茶，歡迎追蹤 FB 與 IG 獲取最新菜單與動態！">
-    <!-- 引入 Google Fonts 質感字體 -->
+    <title>南投橋頭早餐店 Caio Breakfast | 傳承30年的晨間手作美味</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #d97706;       /* 暖陽焦糖橘 */
-            --primary-light: #fef3c7; /* 奶油淺黃 */
-            --accent: #78350f;        /* 烘焙深咖啡 */
-            --bg-cream: #faf7f2;      /* 燕麥奶底色 */
-            --card-bg: #ffffff;
+            --bg-cream: #FDFBF7;
+            --bg-warm: #F5EFE6;
+            --primary-amber: #D97706;
+            --primary-dark: #92400E;
             --text-main: #292524;
-            --text-muted: #57534e;
+            --text-muted: #57534E;
+            --white: #FFFFFF;
+            --shadow: 0 10px 25px -5px rgba(146, 64, 14, 0.08);
         }
 
         * {
@@ -27,313 +25,357 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--bg-cream);
             color: var(--text-main);
             line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* 頂部主視覺 Hero 區塊 */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(41, 37, 36, 0.45), rgba(41, 37, 36, 0.65)),
-                        url('https://unsplash.com') center/cover no-repeat;
-            color: #ffffff;
-            text-align: center;
-            padding: 90px 20px 80px;
-            border-bottom-left-radius: 32px;
-            border-bottom-right-radius: 32px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        h1, h2, h3, .serif {
+            font-family: 'Noto Serif TC', serif;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(254, 243, 199, 0.92);
-            color: var(--accent);
-            font-family: 'Zen Maru Gothic', sans-serif;
+        /* 導覽列 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
             font-weight: 700;
-            font-size: 0.88rem;
-            padding: 6px 16px;
-            border-radius: 50px;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary-amber);
             letter-spacing: 1px;
-            margin-bottom: 16px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-amber);
+        }
+
+        /* 主視覺區 */
+        .hero {
+            padding: 5rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg-cream) 100%);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #FEF3C7;
+            color: var(--primary-dark);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
-            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .hero p {
+            max-width: 620px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
             font-size: 1.05rem;
-            color: #f5f5f4;
-            max-width: 500px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-amber);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            border: 1.5px solid var(--primary-amber);
+        }
+
+        .btn-outline:hover {
+            background-color: #FEF3C7;
+        }
+
+        /* 區塊共用樣式 */
+        section {
+            padding: 4.5rem 5%;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        /* 主要內容容器 */
-        .container {
-            max-width: 720px;
-            margin: -35px auto 0;
-            padding: 0 20px 50px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* 通用卡片設計 */
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 30px 26px;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px -10px rgba(120, 53, 15, 0.08);
-            border: 1px solid rgba(217, 119, 6, 0.08);
-        }
-
         .section-title {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 1.35rem;
-            color: var(--accent);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-light), transparent);
-            margin-left: 8px;
-        }
-
-        .story-text {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* 招牌特色三欄小卡 */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-top: 20px;
-        }
-
-        .feature-item {
-            background: var(--bg-cream);
-            padding: 16px 12px;
-            border-radius: 14px;
             text-align: center;
-            transition: transform 0.2s ease;
+            margin-bottom: 3rem;
         }
 
-        .feature-item:hover {
-            transform: translateY(-3px);
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        /* 品牌堅持 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(217, 119, 6, 0.1);
+            text-align: center;
         }
 
         .feature-icon {
-            font-size: 1.8rem;
-            margin-bottom: 6px;
-            display: block;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
         }
 
-        .feature-name {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--accent);
-            margin-bottom: 4px;
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
         }
 
-        .feature-desc {
-            font-size: 0.8rem;
+        .feature-card p {
             color: var(--text-muted);
-            line-height: 1.4;
+            font-size: 0.95rem;
         }
 
-        /* 營業資訊列表 */
+        /* 招牌菜單 */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-amber);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.6rem;
+        }
+
+        .menu-header h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #FEF3C7;
+            color: var(--primary-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .menu-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: var(--primary-amber);
+            font-size: 1.1rem;
+        }
+
+        /* 店家資訊 */
+        .info-box {
+            background-color: var(--bg-warm);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
         .info-list {
             list-style: none;
         }
 
         .info-list li {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px dashed #e7e5e4;
+            gap: 0.8rem;
         }
 
-        .info-list li:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .info-badge {
-            background: var(--primary-light);
-            color: var(--accent);
+        .info-label {
             font-weight: 700;
-            font-size: 0.85rem;
-            padding: 3px 10px;
-            border-radius: 6px;
-            white-space: nowrap;
-            margin-top: 2px;
+            color: var(--primary-dark);
+            min-width: 85px;
         }
 
-        .info-content {
-            color: var(--text-main);
-            font-size: 0.98rem;
+        .notice-card {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
         }
 
-        /* 社群導流按鈕區 */
-        .social-desc {
+        .notice-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .notice-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 20px;
+            margin-bottom: 0.8rem;
         }
 
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 20px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #ffffff;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-fb {
-            background: linear-gradient(135deg, #1877f2, #0d65d9);
-        }
-
-        .btn-ig {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
-
-        .social-btn svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-
+        /* 頁尾 */
         footer {
+            background-color: #292524;
+            color: #D6D3D1;
             text-align: center;
-            color: #a8a29e;
-            font-size: 0.85rem;
-            margin-top: 20px;
+            padding: 2.5rem 5%;
+            font-size: 0.9rem;
         }
 
-        /* 手機版響應式微調 */
+        footer strong {
+            color: var(--white);
+        }
+
         @media (max-width: 600px) {
-            .hero {
-                padding: 70px 16px 65px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            .feature-item {
-                display: flex;
-                align-items: center;
-                text-align: left;
-                gap: 14px;
-                padding: 14px 16px;
-            }
-            .feature-icon {
-                margin-bottom: 0;
-                font-size: 2rem;
-            }
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 1.9rem; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 頂部主視覺 -->
-    <header class="hero">
-        <span class="hero-badge">DAILY FRESH・手作晨食</span>
-        <h1>【請填寫你的早餐店名稱】</h1>
-        <p>用一份現點現做的暖心美味，為你的每個早晨注入滿滿元氣。</p>
+    <header>
+        <a href="#" class="logo">橋頭早餐店 <span>Caio Breakfast</span></a>
+        <nav>
+            <a href="#about">職人堅持</a>
+            <a href="#menu">招牌推薦</a>
+            <a href="#info">店家資訊</a>
+        </nav>
     </header>
 
-    <main class="container">
-        <!-- 品牌介紹與特色卡片 -->
-        <section class="card">
-            <h2 class="section-title">☀️ 關於我們的早晨</h2>
-            <p class="story-text">
-                每天清晨，我們從新鮮備料與熬煮茶湯開始，堅持現點現做，不讓美味久等。無論是趕著上班上課的快速外帶，或是假日想好好吃頓早午餐，這裡永遠為你留著一份熱騰騰的溫度。
-            </p>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">🥞</span>
-                    <div>
-                        <div class="feature-name">手作酥香蛋餅</div>
-                        <div class="feature-desc">外酥內軟現煎餅皮，搭配秘製醬汁</div>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🍔</span>
-                    <div>
-                        <div class="feature-name">厚實現煎漢堡</div>
-                        <div class="feature-desc">嚴選鮮嫩肉排與爽脆生菜層層堆疊</div>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🧋</span>
-                    <div>
-                        <div class="feature-name">每日現煮茶飲</div>
-                        <div class="feature-desc">古早味紅茶與香醇鮮奶茶比例剛好</div>
-                    </div>
-                </div>
+    <div class="hero">
+        <div class="badge">南投在地經營逾 30 年・每日現點現作</div>
+        <h1>用一份有溫度的手作早餐<br>喚醒南投的美好早晨</h1>
+        <p>堅持每日清晨現磨豆漿米漿、嚴選新鮮食材。無論是料多飽足的古早味飯糰，還是香氣十足的特製炒麵，都是陪伴鄉親長大的熟悉滋味。</p>
+        <div class="hero-btns">
+            <a href="tel:0910333490" class="btn btn-primary">📞 電話預訂外帶</a>
+            <a href="#menu" class="btn btn-outline">瀏覽招牌菜單</a>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>三十年的晨間職人堅持</h2>
+            <p>從備料到起鍋，把關每一份餐點的新鮮與誠意</p>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌾</div>
+                <h3>每日現磨豆漿米漿</h3>
+                <p>拒絕濃縮還原，每天清晨新鮮研磨熬煮，保留最純粹濃郁的黃豆與米香。</p>
             </div>
-        </section>
+            <div class="feature-card">
+                <div class="feature-icon">🍳</div>
+                <h3>新鮮食材現點現作</h3>
+                <p>漢堡、蛋餅、吐司現點現煎，熱騰騰到手，吃得出食材原本的鮮甜與口感。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🥬</div>
+                <h3>貼心客製化服務</h3>
+                <p>提供多樣化餐點選擇，並可依照個人飲食習慣調整，方便葷食與素食朋友享用。</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- 門市與營業資訊卡片 -->
-        <section class="card">
-            <h2 class="section-title">📍 門市資訊</h2>
-            <ul class="info-list">
-                <li>
-                    <span class="info-badge">營業時間</span>
-                    <span class="info-content">週一至週日 06:00 – 13:00（公休日請見粉專公告）</span>
-                </li>
-                <li>
-                    <span class="info-badge">門市地址</span>
-                    <span class="info-content">【請填寫完整縣市與街道地址】</span>
-                </li>
-                <li>
-                    <span class="info-badge">訂餐專線</span>
-                    <span class="info-content">【請填寫店內電話或手機號碼】</span>
-                </li>
-            </ul>
-        </section>
-
-        <!-- 社群追蹤導流卡片 -->
-        <section class="card">
+    <section id="menu">
